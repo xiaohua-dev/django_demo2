@@ -3,4 +3,5 @@ from booktest import views
 
 urlpatterns = [
     url(r'^index/$', views.index),
+    url(r'^create/s', views.create),
 ]
