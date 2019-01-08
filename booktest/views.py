@@ -17,3 +17,9 @@ def create(request):
     b.save()
 
     return HttpResponseRedirect('/index')
+
+def delete(request, bid):
+    #d = BookInfo.objects.filter(id=bid).delete()
+    d = BookInfo.objects.get(id=bid)
+    d.delete()
+    return HttpResponseRedirect('/index')
