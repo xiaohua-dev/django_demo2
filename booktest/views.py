@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from booktest.models import BookInfo
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader,RequestContext
 from datetime import date
 
@@ -16,4 +16,4 @@ def create(request):
     b.bpub_date = date(1992,1,2)
     b.save()
 
-    return HttpResponse('yes')
+    return HttpResponseRedirect('/index')
