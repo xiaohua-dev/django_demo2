@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from booktest.models import BookInfo
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader,RequestContext
@@ -16,7 +16,8 @@ def create(request):
     b.bpub_date = date(1992,1,2)
     b.save()
 
-    return HttpResponseRedirect('/index')
+    return redirect('/index')
+    #return HttpResponseRedirect('/index')
 
 def delete(request, bid):
     #d = BookInfo.objects.filter(id=bid).delete()
