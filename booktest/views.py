@@ -34,10 +34,15 @@ def login(request):
 
 def login_check(request):
     """登录视图校验"""
-    # request.post 保存的是post方式提交的参数
+    # request.post 保存的是post方式提交的参数 QuerDict <class 'django.http.request.QueryDict'>
     # request.get 保存时get方式提交的参数
     # 1、获取提交的用户和密码
-    print(type(request.POST))
+    username = request.POST.get('username')
+    password = request.POST.get('password')
 
-    return HttpResponse("ok")
+    if username == 'xiao' and password == '123':
+        return redirect('/index')
+    else:
+        return redirect('/login')
+
 
