@@ -39,12 +39,15 @@ def login_check(request):
     # 1、获取提交的用户和密码
     username = request.POST.get("username")
     password = request.POST.get("password")
+
     print(username)
     print(password)
 
-    if username == 'xiao' and password == '123':
-        return redirect('/index')
-    else:
-        return redirect('/login')
+    #if username == 'xiao' and password == '123':
+    #    return redirect('/index')
+    #else:
+    #    return redirect('/login')
+
+    return HttpResponse("ok")
 
 
