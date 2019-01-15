@@ -21,7 +21,7 @@ from django.db import models
 
 class BookInfo(models.Model):
     btitle = models.CharField(max_length=30)
-    bprice = models.DecimalField(max_length=10,decimal_places=2)
+    # bprice = models.DecimalField(max_length=10,decimal_places=2)
     bpub_date = models.DateField()
     bread = models.IntegerField(default=0)
     bcomment = models.IntegerField(default=0)
