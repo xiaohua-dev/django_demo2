@@ -29,7 +29,7 @@ def delete(request, bid):
 
 def login(request):
     """登录视图"""
-    return render(request,'booktest/login.html')
+    return render(request, 'booktest/login.html')
 
 
 def login_check(request):
