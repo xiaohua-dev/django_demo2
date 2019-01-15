@@ -6,6 +6,8 @@ from datetime import date
 
 # Create your views here.
 
+# request就是httpRequest的请求对象
+
 def index(request):
     books = BookInfo.objects.all()
     return render(request,'booktest/index.html',{'books': books})
@@ -24,3 +26,6 @@ def delete(request, bid):
     d = BookInfo.objects.get(id=bid)
     d.delete()
     return HttpResponseRedirect('/index')
+
+def login(request):
+    return  render(request,'booktest/login.html')

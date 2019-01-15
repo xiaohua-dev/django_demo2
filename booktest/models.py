@@ -11,6 +11,7 @@ class BookInfoManager(models.Manager):
         books = books.filter(isDelete=False)
         return books
 
+    # 2、封装函数：操作模型类对应的数据表（增删数据表）
     def create_book(self,btitle,bpub_date):
         book = BookInfo()
         book.btitle = btitle
@@ -27,6 +28,13 @@ class BookInfo(models.Model):
     # 删除标记
     isDelete = models.BooleanField(default=False)
 
+    @classmethod
+    def create_book(cls,btitle,bpub_date):
+        obj = cls()
+        obj.btitle = btitle
+        obj.bpub_date = bpub_date
+        obj.save()
+        return obj
 
 class HeroInfo(models.Model):
     hname = models.CharField(max_length=30)
