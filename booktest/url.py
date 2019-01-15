@@ -6,4 +6,6 @@ urlpatterns = [
     url(r'^create/$', views.create),
     url(r'^delete/(\d+)$', views.delete),
     url(r'^login/$', views.login),
+    url(r'^login_check/$', views.login_check),
+
 ]

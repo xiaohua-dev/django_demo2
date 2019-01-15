@@ -28,4 +28,16 @@ def delete(request, bid):
     return HttpResponseRedirect('/index')
 
 def login(request):
-    return  render(request,'booktest/login.html')
+    """登录视图"""
+    return render(request,'booktest/login.html')
+
+
+def login_check(request):
+    """登录视图校验"""
+    # request.post 保存的是post方式提交的参数
+    # request.get 保存时get方式提交的参数
+    # 1、获取提交的用户和密码
+    print(type(request.POST))
+
+    return HttpResponse("ok")
+
