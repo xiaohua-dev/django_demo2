@@ -41,8 +41,8 @@ def login_check(request):
     password = request.POST.get('password')
 
     if username == 'xiao' and password == '123':
-        return redirect('/index')
+        return redirect('/index/')
     else:
-        return redirect('/login')
+        return redirect('/login/')
 
 
