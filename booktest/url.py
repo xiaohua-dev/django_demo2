@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^login/$', views.login),
     url(r'^login_check$', views.login_check),
     url(r'^test_ajax/$', views.ajax_test),
+    url(r'ajax_handle/$', views.ajax_handle),
 
 ]

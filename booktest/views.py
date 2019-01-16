@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from booktest.models import BookInfo
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 from django.template import loader,RequestContext
 from datetime import date
 
@@ -51,6 +51,13 @@ def login_check(request):
 
 
 def ajax_test(request):
+    '''暂时ajax页面'''
     return render(request, 'booktest/ajax_test.html')
+
+
+def ajax_handle(request):
+    '''处理ajax页面'''
+    return JsonResponse({'res': 1})
+
 
 
