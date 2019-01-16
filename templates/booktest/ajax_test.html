@@ -10,7 +10,7 @@
             $('#btnAjax').click(function () {
                 $.ajax({
                     'url': '/ajax_handle',
-                    'datatype': 'json',
+                    'dataType': 'json',
                 }).success(function (data) {
                     //ajax事件处理
                     if (data.res == 1){
