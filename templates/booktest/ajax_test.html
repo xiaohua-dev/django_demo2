@@ -13,14 +13,21 @@
                     'datatype': 'json',
                 }).success(function (data) {
                     //ajax事件处理
-                    alert(data.res)
+                    if (data.res == 1){
+                        $('#message').show().html('提示信息')
+                    }
                 })
             })
         })
     </script>
-
+    <style>
+        #message {
+            display: none;
+            color: aqua;
+        }
+    </style>
 </head>
 <body>
-<input type="button" value="ajax请求">
+<input type="button" id="btnAjax" value="ajax请求">
 </body>
 </html>
