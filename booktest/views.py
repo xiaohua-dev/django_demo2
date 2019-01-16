@@ -50,4 +50,7 @@ def login_check(request):
         return redirect('/login')
 
 
+def ajax_test(request):
+    return render(request, 'booktest/ajax_test.html')
+
 

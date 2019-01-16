@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax页面</title>
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // 绑定btnAjax的click事件
+            $('#btnAjax').click(function () {
+                $.ajax({
+                    'url': '/ajax_handle',
+                    'datatype': 'json',
+                }).success(function (data) {
+                    //ajax事件处理
+                })
+            })
+        })
+    </script>
+
+</head>
+<body>
+<input type="button" value="ajax请求">
+</body>
+</html>
