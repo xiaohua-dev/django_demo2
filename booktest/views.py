@@ -28,7 +28,11 @@ def delete(request, bid):
 
 def login(request):
     """登录视图"""
-    return render(request, 'booktest/login.html')
+    if 'username' in request.COOKIES:
+        username = request.COOKIES['username']
+    else:
+        username = ""
+    return render(request, 'booktest/login.html',{'username': username})
 
 def login_check(request):
     """登录视图校验"""
@@ -37,13 +41,19 @@ def login_check(request):
     # 1、获取提交的用户和密码
     username = request.POST.get("username")
     password = request.POST.get("password")
+    remember = request.POST.get("remember")
 
     print(username)
     print(password)
 
 
     if username == 'xiao' and password == '123':
-        return redirect('/index')
+        response = redirect('/index')
+        if remember == 'on':
+            response.set_cookie('username', username, max_age=3600)
+
+        return response
+
     else:
         return redirect('/login')
 
