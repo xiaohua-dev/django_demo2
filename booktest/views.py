@@ -71,7 +71,7 @@ def login_ajax_check(request):
 def set_cookie(request):
     response = HttpResponse('设置cookie')
     #设置一个cookie信息，名字为num，值为1
-    response.set_cookie('num', 1)
+    response.set_cookie('num', 1, max_age=3600)
     return response
 
 
