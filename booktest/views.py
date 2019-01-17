@@ -56,7 +56,7 @@ def ajax_handle(request):
     return JsonResponse({'res': 1})
 
 def login_ajax(request):
-    return request(request, 'booktest/login_ajax.html')
+    return render(request, 'booktest/login_ajax.html')
 
 def login_ajax_check(request):
     username = request.POST.get('username')
