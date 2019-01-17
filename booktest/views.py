@@ -66,3 +66,26 @@ def login_ajax_check(request):
         return JsonResponse({'res': 1})
     else:
         return JsonResponse({'res': 0})
+
+
+def set_cookie(request):
+    response = HttpResponse('设置cookie')
+    #设置一个cookie信息，名字为num，值为1
+    response.set_cookie('num', 1)
+    return response
+
+
+def get_cookie(request):
+    #取出cookie值
+    num = request.COOKIES['num']
+    return HttpResponse(num)
+
+
+
+
+
+
+
+
+
+
