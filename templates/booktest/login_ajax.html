@@ -16,7 +16,7 @@
                     'data': {'username':username, 'password': password},
                 }).success(function (data) {
                     if (data.res == 0){
-                        $('#errmsg').show().html('用户名或密码错误')
+                        $('#message').show().html('用户名或密码错误')
                     } else {
                         location.href = '/index'
                     }
