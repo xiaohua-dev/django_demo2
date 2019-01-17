@@ -17,7 +17,6 @@ def create(request):
     b.btitle = '流星蝴蝶剑'
     b.bpub_date = date(1992,1,2)
     b.save()
-
     return redirect('/index')
     #return HttpResponseRedirect('/index')
 
@@ -30,7 +29,6 @@ def delete(request, bid):
 def login(request):
     """登录视图"""
     return render(request, 'booktest/login.html')
-
 
 def login_check(request):
     """登录视图校验"""
@@ -49,15 +47,22 @@ def login_check(request):
     else:
         return redirect('/login')
 
-
 def ajax_test(request):
     '''暂时ajax页面'''
     return render(request, 'booktest/ajax_test.html')
-
 
 def ajax_handle(request):
     '''处理ajax页面'''
     return JsonResponse({'res': 1})
 
+def login_ajax(request):
+    return request(request, 'booktest/login_ajax.html')
 
+def login_ajax_check(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
 
+    if username == 'xiao' and password == '123':
+        return JsonResponse({'res': 1})
+    else:
+        return JsonResponse({'res': 0})

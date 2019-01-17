@@ -12,10 +12,11 @@
                 $.ajax({
                     'url': '/ajax_handle',
                     'dataType': 'json',
+                    'async': false, //同步的ajax请求
                 }).success(function (data) {
                     alert(2)
                     //ajax事件处理
-                    //ajax默认是异步
+                    //ajax默认是异步请求
                     if (data.res == 1){
                         $('#message').show().html('提示信息')
                     }
