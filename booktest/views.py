@@ -8,9 +8,20 @@ from datetime import date
 
 # request就是httpRequest的请求对象
 
+#登录装饰器
+def login_required(view_func):
+    def wrapper(request, *view_args, **view_kwargs):
+        if request.session.has_key('isLogin'):
+            return view_func(request, *view_args, **view_kwargs)
+        else:
+            return redirect('/login')
+
+    return wrapper
+
+@login_required
 def index(request):
     books = BookInfo.objects.all()
-    return render(request,'booktest/index.html',{'books': books})
+    return render(request, 'booktest/index.html',{'books': books})
 
 def create(request):
     b = BookInfo()
@@ -28,11 +39,14 @@ def delete(request, bid):
 
 def login(request):
     """登录视图"""
-    if 'username' in request.COOKIES:
-        username = request.COOKIES['username']
+    if request.session.has_key('isLogin'):
+        return redirect('/index')
     else:
-        username = ""
-    return render(request, 'booktest/login.html',{'username': username})
+        if 'username' in request.COOKIES:
+            username = request.COOKIES['username']
+        else:
+            username = ""
+        return render(request, 'booktest/login.html',{'username': username})
 
 def login_check(request):
     """登录视图校验"""
@@ -52,6 +66,7 @@ def login_check(request):
         if remember == 'on':
             response.set_cookie('username', username, max_age=3600)
 
+        request.session['isLogin'] = True
         return response
 
     else:
@@ -91,10 +106,29 @@ def get_cookie(request):
     return HttpResponse(num)
 
 
+def set_session(request):
+    response = HttpResponse('设置session值')
+    request.session['username'] = 'xiao'
+    request.session['age'] = 22
+    # session过期时间
+    #request.session.set_expiry(5)
+
+    return response
+
+def get_session(request):
+    username = request.session['username']
+    age = request.session['age']
+
+    return HttpResponse(username+":" + str(age))
 
 
+def html_escape(request):
+    return render(request, 'booktest/template_escape.html', {'content':'<h1>hello</h1>'})
 
 
+@login_required
+def change_pwd(request):
+    return  render(request, 'booktest/change_pwd.html')
 
 
 

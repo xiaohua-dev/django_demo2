@@ -13,5 +13,9 @@ urlpatterns = [
     url(r'^login_ajax_check$', views.login_ajax_check),
     url(r'^set_cookie/$', views.set_cookie),
     url(r'^get_cookie/$', views.get_cookie),
+    url(r'^set_session$', views.set_session),
+    url(r'^get_session$', views.get_session),
+    url(r'^html_escape/$', views.html_escape),
+    url(r'^change_pwd/$', views.change_pwd),
 
 ]

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{# {% load filters %} #}
 <head>
     <meta charset="UTF-8">
     <title>图书信息</title>
@@ -8,7 +9,12 @@
 <a href="/create">新增</a>
     <ul>
         {% for book in books %}
-            <li>{{ book.btitle }}--<a href="/delete/{{ book.id }}">删除</a></li>
+            {% if book.id <= 2 %}
+            {# {% if book.id|mod %} #}
+                <li style="background-color: red">{{ book.btitle }}  {{ book.bpub_date|date:'Y年-m月-d天' }}--<a href="/delete/{{ book.id }}">删除</a></li>
+            {% else %}
+                <li style="background-color: green">{{ book.btitle }}  {{ book.bpub_date|date:'Y年-m月-d天' }}--<a href="/delete/{{ book.id }}">删除</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
 </body>
