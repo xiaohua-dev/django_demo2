@@ -17,5 +17,6 @@ urlpatterns = [
     url(r'^get_session$', views.get_session),
     url(r'^html_escape/$', views.html_escape),
     url(r'^change_pwd/$', views.change_pwd),
+    url(r'verify_code/$', views.verify_code),
 
 ]

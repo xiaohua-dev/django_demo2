@@ -56,11 +56,14 @@ def login_check(request):
     username = request.POST.get("username")
     password = request.POST.get("password")
     remember = request.POST.get("remember")
+    vcode = request.POST.get("vcode")
+    vcode2 = request.session.get('verifycode')
 
     print(username)
     print(password)
 
-
+    if vcode != vcode2:
+        return  redirect('/login')
     if username == 'xiao' and password == '123':
         response = redirect('/index')
         if remember == 'on':
