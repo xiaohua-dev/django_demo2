@@ -2,7 +2,7 @@ from django.conf.urls import include, url
 from booktest import views
 
 urlpatterns = [
-    url(r'^index2/$', views.index, name = 'index'),
+    url(r'^index2/$', views.index, name='index'),
     url(r'^create/$', views.create),
     url(r'^delete/(\d+)$', views.delete),
     url(r'^login/$', views.login),
