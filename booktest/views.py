@@ -183,4 +183,7 @@ def verify_code(request):
     return HttpResponse(buf.getvalue(), 'image/png')
 
 
+def url_reverse(request):
+    return  render(request,'booktest/url_reverse.html')
+
 
